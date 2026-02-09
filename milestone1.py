@@ -1,11 +1,32 @@
 import pandas as pd
 import re
 import string
+import nltk
 
-STOPWORDS={
-    "is","are","the","a","an","to","of","in","on","for","with","this","that",
-    "it","was","as","at","be","by","from","or","but","and"
+from nltk.corpus import stopwords
+
+nltk.download("stopwords")
+
+# STOPWORDS={
+#     "is","are","the","a","an","to","of","in","on","for","with","this","that",
+#     "it","was","as","at","be","by","from","or","but","and"
+# }
+STOPWORDS = set(stopwords.words("english"))
+
+# Keep negations
+important_words = {
+    "not", "no", "never", "nor",
+
+    # Intensifiers
+    "very", "too", "so", "extremely", "really", "quite",
+
+    # Contrast words
+    "but", "however", "although", "though", "yet"
 }
+
+# Remove these from stopwords list
+STOPWORDS = STOPWORDS - important_words
+
 
 def clean_text(text):
     text = str(text).lower()
