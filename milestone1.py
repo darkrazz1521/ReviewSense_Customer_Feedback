@@ -13,8 +13,9 @@ nltk.download("stopwords")
 # }
 STOPWORDS = set(stopwords.words("english"))
 
-# Keep negations
+
 important_words = {
+    # Keep negations
     "not", "no", "never", "nor",
 
     # Intensifiers
