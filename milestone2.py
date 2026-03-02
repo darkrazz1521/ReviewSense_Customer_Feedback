@@ -7,11 +7,11 @@ def get_sentiment(text):
     polarity = TextBlob(str(text)).sentiment.polarity
 
     if polarity > 0:
-        return "positive", polarity
+        return "Positive", polarity
     elif polarity < 0:
-        return "negative", polarity
+        return "Negative", polarity
     else:
-        return "neutral", polarity
+        return "Neutral", polarity
 
 
 if __name__ == "__main__":
